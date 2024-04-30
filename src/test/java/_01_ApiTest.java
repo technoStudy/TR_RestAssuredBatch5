@@ -44,7 +44,7 @@ public class _01_ApiTest {
                 .then()
                 .log().body()  // dönen body bilgisini göster
                 .statusCode(200) // dönen kod 200 mü
-                .contentType(ContentType.JSON) // dönen datanın tipi JSON mı
+                .contentType(ContentType.JSON ) // dönen datanın tipi JSON mı
         ;
     }
 
