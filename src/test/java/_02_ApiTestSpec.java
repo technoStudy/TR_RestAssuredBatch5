@@ -17,7 +17,7 @@ public class _02_ApiTestSpec {
     @BeforeClass
     public void Setup()
     {
-        baseURI="https://gorest.co.in/public/v1";   // hazırda tanımlanmış RESTASSURED ait değişken
+        baseURI="https://gorest.co.in/public/v1"; //when  // hazırda tanımlanmış RESTASSURED ait değişken
 
         requestSpec = new RequestSpecBuilder()  // given
                 .setContentType(ContentType.JSON)

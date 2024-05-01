@@ -129,6 +129,9 @@ public class _01_ApiTest {
                 .body("places[0].state", equalTo("California"))
                 .body("places[0].'place name'", equalTo("Beverly Hills"))
         ;
+
+
+
     }
 
     @Test
@@ -185,6 +188,7 @@ public class _01_ApiTest {
                     .body("meta.pagination.page", equalTo(i))
             ;
         }
+
     }
 
 
