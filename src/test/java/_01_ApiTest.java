@@ -166,7 +166,15 @@ public class _01_ApiTest {
         ;
     }
 
+    @Test
+    public void queryParamTest2() {
+        // https://gorest.co.in/public/v1/users?page=3
+        // bu linkteki 1 den 10 kadar sayfaları çağırdığınızda response daki donen page degerlerinin
+        // çağrılan page nosu ile aynı olup olmadığını kontrol ediniz.
 
+
+
+    }
 
 
 
