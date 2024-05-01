@@ -131,7 +131,38 @@ public class _01_ApiTest {
         ;
     }
 
+    @Test
+    public void pathParamTest(){
+
+        given()  // gönderilecek hazırlıklar
+                .pathParam("ulke","us")
+                .pathParam("postaKodu",90210)
+                .log().uri()  // request linki ni göndermeden önce görebilirsin
+
+                .when()
+                .get("http://api.zippopotam.us/{ulke}/{postaKodu}")
+
+                .then()
+                .log().body()
+        ;
+
+    }
+
+
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
 
 
 
