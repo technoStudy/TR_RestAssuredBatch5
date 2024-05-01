@@ -44,7 +44,7 @@ public class _01_ApiTest {
                 .then()
                 .log().body()  // dönen body bilgisini göster
                 .statusCode(200) // dönen kod 200 mü
-                .contentType(ContentType.JSON  ) // dönen datanın tipi JSON mı
+                .contentType(ContentType.JSON) // dönen datanın tipi JSON mı
         ;
     }
 
@@ -60,18 +60,20 @@ public class _01_ApiTest {
                 .log().body()
                 .statusCode(200)
                 .body("country", equalTo("United States")) // country yi dışarı almadan
-                // bulundu yeri (path i) vererek içerde assertion hamcrest kütüphanesi yapıyor
+        // bulundu yeri (path i) vererek içerde assertion hamcrest kütüphanesi yapıyor
         ;
+    }
+
+    @Test
+    public void checkCountryInResponseBody2() {
+        // Soru : "http://api.zippopotam.us/us/90210"  endpoint indne dönen
+        // place dizisinin ilk elemanının state değerinin  "California"
+        // olduğunu doğrulayınız
 
     }
 
+
 }
-
-
-
-
-
-
 
 
 
