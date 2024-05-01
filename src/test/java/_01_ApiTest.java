@@ -149,6 +149,22 @@ public class _01_ApiTest {
     }
 
 
+    @Test
+    public void queryParamTest() {
+        //https://gorest.co.in/public/v1/users?page=3
+
+        given()
+                .param("page",1)  //?page=1  param: soru işareti ile parametre göndreceğim
+                .log().uri()
+
+                .when()
+                .get("https://gorest.co.in/public/v1/users")
+                //.get("https://gorest.co.in/public/v1/users?page=3")
+
+                .then()
+                .log().body()
+        ;
+    }
 
 
 
