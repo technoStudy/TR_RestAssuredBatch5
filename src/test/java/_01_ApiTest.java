@@ -172,8 +172,19 @@ public class _01_ApiTest {
         // bu linkteki 1 den 10 kadar sayfaları çağırdığınızda response daki donen page degerlerinin
         // çağrılan page nosu ile aynı olup olmadığını kontrol ediniz.
 
+        for (int i = 1; i <= 10; i++) {
 
+            given()
+                    .param("page",i)
+                    .log().uri()
 
+                    .when()
+                    .get("https://gorest.co.in/public/v1/users")
+
+                    .then()
+                    .body("meta.pagination.page", equalTo(i))
+            ;
+        }
     }
 
 
