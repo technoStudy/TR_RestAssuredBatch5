@@ -1,5 +1,4 @@
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.builder.ResponseBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
@@ -9,9 +8,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
 
-public class _02_ApiTest {
+public class _02_ApiTestSpec {
 
     RequestSpecification requestSpec;
     ResponseSpecification responseSpec;
@@ -21,14 +19,14 @@ public class _02_ApiTest {
     {
         baseURI="https://gorest.co.in/public/v1";   // hazırda tanımlanmış RESTASSURED ait değişken
 
-        requestSpec = new RequestSpecBuilder()
+        requestSpec = new RequestSpecBuilder()  // given
                 .setContentType(ContentType.JSON)
-                .log(LogDetail.URI)
+                .log(LogDetail.URI) // log().uri()
                 .build();
 
-        responseSpec = new ResponseSpecBuilder()
-                .expectStatusCode(200)
-                .log(LogDetail.BODY)
+        responseSpec = new ResponseSpecBuilder()  // then
+                .expectStatusCode(200)  // statusCode(200)
+                .log(LogDetail.BODY)  // log().body()
                 .expectContentType(ContentType.JSON)
                 .build();
     }
