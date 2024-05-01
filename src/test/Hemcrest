@@ -1,0 +1,23 @@
+Genel kullanılanlar
+
+equalTo(X) - used to check whether an actual element value is equal to a pre-specified expected element value
+hasItem("value") - used to see whether a collection of elements contains a specific pre-specified item value
+hasSize(3) - used to verify the actual number of elements in a collection
+not(equalTo(X)) - inverts any given matcher that exists in the Hamcrest
+
+Number related assertions
+
+equalTo – It checks whether the retrieved number from response is equal to the expected number.
+greaterThan – checks extracted number is greater than the expected number.
+greaterThanOrEqualTo – checks whether the extracted number is greater than equal to the expected number.
+lessThan – It checks whether the retrieved number from response is lesser than to the expected number.
+lessThanOrEqualTo – It checks whether the retrieved number from response is lesser than or equal to the expected number.
+
+String related Assertions
+
+equalTo – It checks whether the extracted string from JSON is equal to the expected string.
+equalToIgnoringCase – It checks whether the extracted string from JSON is equal to the expected string without considering the case (small or capital).
+equalToIgnoringWhiteSpace – It checks whether the extracted string from JSON is equal to the expected string by considering the white spaces.
+containsString – It checks whether the extracted string from JSON contains the expected string as a substring.
+startsWith – It checks whether the extracted string from JSON is starting with a given string or character.
+endsWith – It checks whether the extracted string from JSON is ending with a given string or character.
