@@ -158,8 +158,8 @@ public class _01_ApiTest {
                 .log().uri()
 
                 .when()
-                .get("https://gorest.co.in/public/v1/users")
-                //.get("https://gorest.co.in/public/v1/users?page=3")
+                .get("https://gorest.co.in/public/v1/users") //https://gorest.co.in/public/v1/users?page=1
+                //.get("https://gorest.co.in/public/v1/users?page=1")
 
                 .then()
                 .log().body()
