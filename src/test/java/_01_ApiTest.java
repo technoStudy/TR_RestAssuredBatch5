@@ -3,6 +3,7 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasItem;
 
 public class _01_ApiTest {
 
@@ -70,6 +71,32 @@ public class _01_ApiTest {
         // place dizisinin ilk elemanının state değerinin  "California"
         // olduğunu doğrulayınız
 
+        given()
+
+                .when()
+                .get("http://api.zippopotam.us/us/90210")
+
+                .then()
+                //.log().body()
+                .body("places[0].state", equalTo("California"))
+        ;
+    }
+
+    @Test
+    public void checkHasItem() {
+        // Soru : "http://api.zippopotam.us/tr/01000"  endpoint in dönen
+        // place dizisinin herhangi bir elemanında  "Dörtağaç Köyü" değerinin
+        // olduğunu doğrulayınız
+
+        given()
+
+                .when()
+                .get("http://api.zippopotam.us/tr/01000")
+
+                .then()
+                .log().body()
+                .body("places.'place name'", hasItem("Dörtağaç Köyü"))    //places içindeki bütün place name
+        ;
     }
 
 
