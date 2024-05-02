@@ -1,6 +1,8 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 import static io.restassured.RestAssured.*;
 
 public class _03_ApiTestExtract {
@@ -58,4 +60,49 @@ public class _03_ApiTestExtract {
         Assert.assertEquals(placeName, "Beverly Hills");
     }
 
+    @Test
+    public void extractingJsonPath4() {
+        // Soru : "https://gorest.co.in/public/v1/users"  endpoint in den dönen
+        // limit bilgisinin 10 olduğunu testNG ile doğrulayınız.
+
+        int limit=
+        given()
+                .when()
+                .get("https://gorest.co.in/public/v1/users")
+                .then()
+                .extract().path("meta.pagination.limit")
+        ;
+
+        Assert.assertTrue(limit==10);
+    }
+
+    @Test
+    public void extractingJsonPath5() {
+
+        List<Integer> idler=
+                given()
+                        .when()
+                        .get("https://gorest.co.in/public/v1/users")
+                        .then()
+                        .log().body()
+                        .extract().path("data.id")  // id lerin yer aldığı bir array
+                ;
+
+        System.out.println("idler = " + idler);
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
