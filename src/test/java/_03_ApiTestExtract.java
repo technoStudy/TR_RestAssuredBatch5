@@ -21,5 +21,23 @@ public class _03_ApiTestExtract {
         Assert.assertEquals(ulkeAdi, "United States"); // alınan değer buna eşit mi
     }
 
+    @Test
+    public void extractingJsonPath2() {
+        // Soru : "http://api.zippopotam.us/us/90210"  endpoint indne dönen
+        // place dizisinin ilk elemanının state değerinin  "California"
+        // olduğunu testNG Assertion ile doğrulayınız
+
+        String stateName=
+        given()
+                .when()
+                .get("http://api.zippopotam.us/us/90210")
+
+                .then()
+                .extract().path("places[0].state")
+                ;
+
+        System.out.println("stateName = " + stateName);
+        Assert.assertEquals(stateName, "California");
+    }
 
 }

@@ -19,7 +19,14 @@ body.'post code'                    body("post Code")
             "state": "California",
             "state abbreviation": "CA",
             "latitude": "34.0901"
-        }
+        },
+        {
+                    "place name": "Beverly Hills",
+                    "longitude": "-118.4065",
+                    "state": "California",
+                    "state abbreviation": "CA",
+                    "latitude": "34.0901"
+                }
     ]
 }
 
