@@ -78,7 +78,6 @@ public class _03_ApiTestExtract {
 
     @Test
     public void extractingJsonPath5() {
-
         List<Integer> idler=
                 given()
                         .when()
@@ -90,6 +89,24 @@ public class _03_ApiTestExtract {
 
         System.out.println("idler = " + idler);
     }
+
+    @Test
+    public void extractingJsonPath6() {
+        // Soru : "https://gorest.co.in/public/v1/users"  endpoint in den dönen
+        // bütün name leri yazdırınız.
+
+        List<String> names=
+                given()
+                        .when()
+                        .get("https://gorest.co.in/public/v1/users")
+                        .then()
+                        //.log().body()
+                        .extract().path("data.name")  // name lerin yer aldığı bir array
+                ;
+
+        System.out.println("names = " + names);
+    }
+
 
 }
 
