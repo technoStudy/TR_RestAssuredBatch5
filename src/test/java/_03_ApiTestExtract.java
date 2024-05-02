@@ -116,7 +116,7 @@ public class _03_ApiTestExtract {
                         .get("https://gorest.co.in/public/v1/users")
                         .then()
                         //.log().body()
-                        .extract().response()
+                        .extract().response()  // dönen tüm data alındı
                 ;
 
         List<Integer> idler=donenData.path("data.id");  // var id=donenData.id;
@@ -127,8 +127,8 @@ public class _03_ApiTestExtract {
         System.out.println("names = " + names);
         System.out.println("limit = " + limit);
 
-        Assert.assertTrue( idler.contains(6880125));
-        Assert.assertTrue( names.contains("Karunanidhi Jain"));
+        Assert.assertTrue( idler.contains(6880124));
+        Assert.assertTrue( names.contains("The Hon. Divya Kakkar"));
         Assert.assertTrue( limit == 10);
     }
 
