@@ -26,5 +26,13 @@ public class _04_ApiTestPOJO {
 
     }
 
+    @Test
+    public void extractPOJO_Soru() {
+        // http://api.zippopotam.us/tr/01000  endpointinden dönen verilerden "Dörtağaç Köyü" ait bilgileri yazdırınız
 
-}
+    }
+
+
+
+
+    }
