@@ -1,4 +1,5 @@
 import Model.Location;
+import Model.Place;
 import org.testng.annotations.Test;
 
 import java.util.Locale;
@@ -18,6 +19,7 @@ public class _04_ApiTestPOJO {
 
                 .then()
                 .extract().body().as(Location.class);
+
         ;
 
         System.out.println("locationNesnesi = " + locationNesnesi);
@@ -30,7 +32,29 @@ public class _04_ApiTestPOJO {
     public void extractPOJO_Soru() {
         // http://api.zippopotam.us/tr/01000  endpointinden dönen verilerden "Dörtağaç Köyü" ait bilgileri yazdırınız
 
+        Location gelenBodyNesnesi=
+        given()
+
+                .when()
+                .get("http://api.zippopotam.us/tr/01000")
+
+                .then()
+                //.log().body()
+                .extract().body().as(Location.class)
+        ;
+
+        for(Place p: gelenBodyNesnesi.getPlaces())
+        {
+            if (p.getPlacename().equalsIgnoreCase("Camuzcu Köyü"))
+                System.out.println("p = " + p);
+        }
+
+
     }
+
+
+
+
 
 
 
