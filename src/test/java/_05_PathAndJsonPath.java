@@ -79,6 +79,11 @@ public class _05_PathAndJsonPath {
         // jsonPath : class dönüşümüne ve tip dönüşümüne izin vererek , veriyi istediğimiz formatta verir.
     }
 
+    // Soru  : https://gorest.co.in/public/v1/users  endpointte dönen Sadece Data Kısmını POJO
+    // dönüşümü ile alarak yazdırınız.
+
+
+
 
 
 }
