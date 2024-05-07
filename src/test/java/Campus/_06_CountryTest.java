@@ -100,13 +100,15 @@ public class _06_CountryTest {
                 .log().body()
                 .statusCode(400)
         ;
-
-
     }
 
     @Test
     public void UpdateCountry() {
-        //burada gelen tooken ın yine cookies içinde geri gitmesi lazım:spec
+        // yukarıda create edilen ülkenin adını bir başka ülke adı ile update ediniz.
+
+
+
+
 
     }
 
