@@ -61,7 +61,7 @@ public class _06_CountryTest {
         newCountry.put("name",randomUreteci.address().country()+randomUreteci.address().countryCode());
         newCountry.put("code",randomUreteci.address().countryCode());
 
-        //Not: Spec bilgileri givendan hemen sonra yazılmalı!
+        //Not: Spec bilgileri given dan hemen sonra yazılmalı!
 
         given()
                 .spec(reqSpec)  // gelen cookies, yeni istek için login olduğumun kanıtı olarak gönderildi.
@@ -73,12 +73,13 @@ public class _06_CountryTest {
                 .log().body()
                 .statusCode(201)
         ;
-
     }
 
     @Test
     public void CreateCountryNegative(){
+        // Yukarıda gönderilen name ve codu tekrar göndererek kayıt yapılamadığını doğrulayınız.
         //burada gelen tooken ın yine cookies içinde geri gitmesi lazım:spec
+
 
     }
 
