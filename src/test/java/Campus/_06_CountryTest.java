@@ -55,13 +55,22 @@ public class _06_CountryTest {
     @Test
     public void CreateCountry(){
          //burada gelen tooken ın yine cookies içinde geri gitmesi lazım :spec
+        Map<String,String> newCountry=new HashMap<>();
+        newCountry.put("name","ismetUlkesi55");
+        newCountry.put("code","5555");
+
+        //Not: Spec bilgileri givendan hemen sonra yazılmalı!
 
         given()
                 .spec(reqSpec)  // gelen cookies, yeni istek için login olduğumun kanıtı olarak gönderildi.
+                .body(newCountry)
                 .when()
+                .post("/school-service/api/countries")
 
                 .then()
-                ;
+                .log().body()
+                .statusCode(201)
+        ;
 
     }
 
