@@ -19,6 +19,7 @@ public class _06_CountryTest {
     Faker randomUreteci = new Faker();
     String countryName = "";
     String countryCode = "";
+    String countryID="";
 
     @BeforeClass
     public void LoginCampus() {
@@ -69,6 +70,7 @@ public class _06_CountryTest {
 
         //Not: Spec bilgileri given dan hemen sonra yazılmalı!
 
+        countryID=
         given()
                 .spec(reqSpec)  // gelen cookies, yeni istek için login olduğumun kanıtı olarak gönderildi.
                 .body(newCountry)
@@ -78,6 +80,7 @@ public class _06_CountryTest {
                 .then()
                 .log().body()
                 .statusCode(201)
+                .extract().path("id")
         ;
     }
 
@@ -102,14 +105,33 @@ public class _06_CountryTest {
         ;
     }
 
-    @Test
+    @Test(dependsOnMethods = "CreateCountryNegative")
     public void UpdateCountry() {
         // yukarıda create edilen ülkenin adını bir başka ülke adı ile update ediniz.
+        // benim id ye ihtiyacım var, id nerde oluşuyor
+        String updCountryName="ismet"+randomUreteci.address().country()+
+                              randomUreteci.address().latitude();
 
+        Map<String, String> updCountry = new HashMap<>();
+        updCountry.put("id", countryID);
+        updCountry.put("name", updCountryName);
+        updCountry.put("code", countryCode);
 
+        given()
+                .spec(reqSpec)
+                .body(updCountry)
+                .when()
+                .put("/school-service/api/countries")
 
+                .then()
+                .log().body()
+                .statusCode(200)
+        ;
 
-
+         // TODO: bu örneğe gönderdiğiniz ülke adının , dönen body deki ülke adıyla aynı
+          // olup olmadığı testini ekleyiniz.
     }
 
+    // TODO : DELETECountry yi yapınız
+    // TODO : DELETECountryNegative i yapınız.
 }
