@@ -5,6 +5,10 @@ import io.restassured.http.ContentType;
 import io.restassured.http.Cookies;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.*;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import static io.restassured.RestAssured.*;
 
 
@@ -22,9 +26,15 @@ public class _06_CountryTest {
         //{"username": "turkeyts", "password": "TechnoStudy123","rememberMe": "true"}
         String userCredential="{\"username\": \"turkeyts\", \"password\": \"TechnoStudy123\",\"rememberMe\": \"true\"}";
 
+        Map<String,String> userCredMap=new HashMap<>();
+        userCredMap.put("username","turkeyts");
+        userCredMap.put("password","TechnoStudy123");
+        userCredMap.put("rememberMe","true");
+
         Cookies gelenCookies=
         given()
-                .body(userCredential)
+                //.body(userCredential)
+                .body(userCredMap)
                 .contentType(ContentType.JSON)
                 .when()
                 .post("/auth/login")
