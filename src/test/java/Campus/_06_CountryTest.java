@@ -1,5 +1,6 @@
 package Campus;
 
+import com.github.javafaker.Faker;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.http.Cookies;
@@ -15,6 +16,7 @@ import static io.restassured.RestAssured.*;
 public class _06_CountryTest {
 
     RequestSpecification reqSpec;
+    Faker randomUreteci=new Faker();
 
     @BeforeClass
     public void LoginCampus(){
@@ -56,8 +58,8 @@ public class _06_CountryTest {
     public void CreateCountry(){
          //burada gelen tooken ın yine cookies içinde geri gitmesi lazım :spec
         Map<String,String> newCountry=new HashMap<>();
-        newCountry.put("name","ismetUlkesi55");
-        newCountry.put("code","5555");
+        newCountry.put("name",randomUreteci.address().country()+randomUreteci.address().countryCode());
+        newCountry.put("code",randomUreteci.address().countryCode());
 
         //Not: Spec bilgileri givendan hemen sonra yazılmalı!
 
