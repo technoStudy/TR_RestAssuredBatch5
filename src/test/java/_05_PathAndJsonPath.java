@@ -82,7 +82,18 @@ public class _05_PathAndJsonPath {
     // Soru  : https://gorest.co.in/public/v1/users  endpointte dönen Sadece Data Kısmını POJO
     // dönüşümü ile alarak yazdırınız.
 
+    @Test
+    public void getUsersV1()
+    {
+        given()
+                .when()
+                .get("https://gorest.co.in/public/v1/users")
 
+                .then()
+                .log().body()
+        ;
+
+    }
 
 
 
