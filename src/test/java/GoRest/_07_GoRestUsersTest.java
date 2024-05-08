@@ -82,7 +82,31 @@ public class _07_GoRestUsersTest {
         ;
     }
 
+    // UpdateUser testini yapınız
+    @Test(dependsOnMethods = "GetUserById")
+    public void UpdateUser()
+    {
+        String updName="İsmet Temur";
 
+        Map<String,String> updUser=new HashMap<>();
+        updUser.put("name",updName);
+
+        given()
+                .spec(reqSpec)
+                .body(updUser)
+
+                .when()
+                .put("/"+userID)
+
+                .then()
+                .statusCode(200)
+                .log().body()
+                .body("id", equalTo(userID))
+                .body("name", equalTo(updName))
+        ;
+
+
+    }
 
 
 
