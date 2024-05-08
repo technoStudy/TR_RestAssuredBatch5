@@ -99,15 +99,29 @@ public class _07_GoRestUsersTest {
                 .put("/"+userID)
 
                 .then()
-                .statusCode(200)
                 .log().body()
+                .statusCode(200)
                 .body("id", equalTo(userID))
                 .body("name", equalTo(updName))
         ;
-
-
     }
 
+
+    // DeleteUser testini yapınız
+    @Test(dependsOnMethods = "UpdateUser")
+    public void DeleteUser()
+    {
+        given()
+                .spec(reqSpec)
+
+                .when()
+                .delete("/"+userID)
+
+                .then()
+                //.log().body()
+                .statusCode(204)
+        ;
+    }
 
 
 
