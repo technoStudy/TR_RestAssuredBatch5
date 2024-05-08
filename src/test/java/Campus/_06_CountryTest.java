@@ -131,6 +131,24 @@ public class _06_CountryTest {
         ;
     }
 
-    // TODO : DELETECountry yi yapınız
-    // TODO : DELETECountryNegative i yapınız.
+    // Delete Country i Testini yapınız.
+
+    @Test(dependsOnMethods = "UpdateCountry")
+    public  void  DeleteCountry()
+    {
+
+        given()
+                .spec(reqSpec)
+
+                .when()
+                .delete("/school-service/api/countries/"+countryID)
+
+                .then()
+                .statusCode(200)
+        ;
+    }
+
+
+
+
 }
