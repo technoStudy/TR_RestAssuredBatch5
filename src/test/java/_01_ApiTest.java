@@ -56,7 +56,7 @@ public class _01_ApiTest {
 
                 .when()
                 .get("http://api.zippopotam.us/us/90210")
-
+                 // test
                 .then()
                 .log().body()
                 .statusCode(200)
