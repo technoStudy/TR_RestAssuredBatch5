@@ -118,11 +118,23 @@ public class _07_GoRestUsersTest {
                 .delete("/"+userID)
 
                 .then()
-                //.log().body()
                 .statusCode(204)
         ;
     }
 
+    // DeleteUserNegative testini yapınız
+    @Test(dependsOnMethods = "DeleteUser")
+    public void DeleteUserNegative()
+    {
+        given()
+                .spec(reqSpec)
 
+                .when()
+                .delete("/"+userID)
+
+                .then()
+                .statusCode(404)
+        ;
+    }
 
 }
