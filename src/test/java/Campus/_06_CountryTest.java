@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
 
 
 public class _06_CountryTest {
@@ -126,10 +127,8 @@ public class _06_CountryTest {
                 .then()
                 .log().body()
                 .statusCode(200)
+                .body("name", equalTo(updCountryName)) //gönderdiğiniz ülke adının , dönen body deki ülke adıyla aynı
         ;
-
-         // TODO: bu örneğe gönderdiğiniz ülke adının , dönen body deki ülke adıyla aynı
-          // olup olmadığı testini ekleyiniz.
     }
 
     // TODO : DELETECountry yi yapınız
