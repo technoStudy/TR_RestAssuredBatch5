@@ -1,9 +1,13 @@
 package GoRest;
 
+import com.github.javafaker.Faker;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static io.restassured.RestAssured.*;
 
@@ -14,7 +18,9 @@ public class _07_GoRestUsersTest {
     // enpoint i aldım gidiş metodu
     // BeforeClass ın içinde yapılacaklar var mı? nelerdir ?  url set ve spec hazırlanmalı
 
+    Faker randomUreteci=new Faker();
     RequestSpecification reqSpec;
+    int userID=0;
     @BeforeClass
     public void Setup()
     {
@@ -26,7 +32,35 @@ public class _07_GoRestUsersTest {
                 .build();
     }
 
-    // Create User Testini yapınız
+    // Create User Testini yapınız (herkes kendi token ını kullanırsa iyi olur)
+
+    @Test
+    public void CreateUser()
+    {
+        String rndFullName= randomUreteci.name().fullName();
+        String rndEmail= randomUreteci.internet().emailAddress();
+
+        Map<String,String> newUser=new HashMap<>();
+        newUser.put("name",rndFullName);
+        newUser.put("gender","male");
+        newUser.put("email",rndEmail);
+        newUser.put("status","active");
+
+        userID=
+        given()
+                .spec(reqSpec)
+                .body(newUser)
+
+                .when()
+                .post("")// http ile başlamıyorsa BASEURI geçerli
+
+                .then()
+                .log().body()
+                .statusCode(201)
+                .extract().path("id")
+        ;
+
+    }
 
 
 
