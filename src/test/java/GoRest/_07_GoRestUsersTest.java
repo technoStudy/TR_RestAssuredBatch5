@@ -6,10 +6,12 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.*;
 
+import java.beans.Transient;
 import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
 
 public class _07_GoRestUsersTest {
 
@@ -61,6 +63,26 @@ public class _07_GoRestUsersTest {
         ;
 
     }
+
+    // GetUserById testini yapınız
+    @Test(dependsOnMethods ="CreateUser" )
+    public void GetUserById()
+    {
+
+        given()
+                .spec(reqSpec)
+
+                .when()
+                .get("/"+userID)
+
+                .then()
+                .log().body()
+                .statusCode(200)
+                .body("id", equalTo(userID))
+        ;
+    }
+
+
 
 
 
