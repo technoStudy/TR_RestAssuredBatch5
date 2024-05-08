@@ -148,7 +148,24 @@ public class _06_CountryTest {
         ;
     }
 
+    // Delete Country Negatif testini yapınız
+    @Test(dependsOnMethods = "DeleteCountry")
+    public  void  DeleteCountryNegative()
+    {
 
+        given()
+                .spec(reqSpec)
+
+                .when()
+                .delete("/school-service/api/countries/"+countryID)
+
+                .then()
+                .log().all()
+                .statusCode(400)
+        ;
+    }
+
+     // TODO : CitizenShip in API testini yapınız
 
 
 }
