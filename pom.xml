@@ -57,4 +57,26 @@
 
     </dependencies>
 
+
+    <!--    Maven test çalıştırınca çalıştırılacak bölümün setlenmesi kısmı-->
+
+    <!--  Jenkins in Çalıştırma komutunun , nereyi açlıştıracağını belirlediğimiz plugin -->
+    <!--    https://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M1</version>
+                <configuration>
+
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
