@@ -161,7 +161,7 @@ public class _06_CountryTest {
 
                 .then()
                 .log().all()
-                .statusCode(400)
+                .statusCode(404) // jenkins için hata oluşturuldu
         ;
     }
 
