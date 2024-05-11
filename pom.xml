@@ -70,9 +70,13 @@
                 <version>3.0.0-M1</version>
                 <configuration>
 
-                    <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
-                    </suiteXmlFiles>
+<!--                    <suiteXmlFiles>-->
+<!--                        <suiteXmlFile>testng.xml</suiteXmlFile>-->
+<!--                    </suiteXmlFiles>-->
+
+                    <includes>
+                        <include>**/_06_CountryTest.java</include>
+                    </includes>
 
                 </configuration>
             </plugin>
