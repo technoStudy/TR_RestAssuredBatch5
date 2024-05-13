@@ -75,7 +75,7 @@
 <!--                    </suiteXmlFiles>-->
 
                     <includes>
-                        <include>**/_06_CountryTest.java</include>
+                        <include>**/_06_CountryTest.java</include>  <!-- **/ projenin neresinde ise bul  -->
                     </includes>
 
                 </configuration>
