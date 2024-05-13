@@ -70,10 +70,12 @@
                 <version>3.0.0-M1</version>
                 <configuration>
 
+                    <!--  XML çalıştırmak için  -->
 <!--                    <suiteXmlFiles>-->
 <!--                        <suiteXmlFile>testng.xml</suiteXmlFile>-->
 <!--                    </suiteXmlFiles>-->
 
+                    <!--  CLASS çalıştırmak için  -->
                     <includes>
                         <include>**/_06_CountryTest.java</include>  <!-- **/ projenin neresinde ise bul  -->
                     </includes>
