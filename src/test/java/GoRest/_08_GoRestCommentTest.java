@@ -107,6 +107,36 @@ public class _08_GoRestCommentTest {
           ;
      }
 
+     // Soru : Oluşturduğunuz Comment ı DeleteComment testi ile siliniz.
+     // Soru : Sildiğini Comment ı tekrar silme yöntemi ile DeleteCommentNegative testi yapınız.
+
+     @Test(dependsOnMethods = "UpdateComment")
+     public void DeleteComment()
+     {
+          given()
+                  .spec(reqSpec)
+                  .when()
+                  .delete(""+commentID)
+
+                  .then()
+                  .log().body()
+                  .statusCode(204)
+          ;
+     }
+
+     @Test(dependsOnMethods = "DeleteComment")
+     public void DeleteCommentNegative()
+     {
+          given()
+                  .spec(reqSpec)
+                  .when()
+                  .delete(""+commentID)
+
+                  .then()
+                  .log().body()
+                  .statusCode(404)
+          ;
+     }
 
 
 
