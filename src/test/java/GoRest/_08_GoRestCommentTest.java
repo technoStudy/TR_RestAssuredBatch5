@@ -70,5 +70,22 @@ public class _08_GoRestCommentTest {
           System.out.println("commentID = " + commentID);
      }
 
+     // Soru : Create edilen Comment ı GetCommentByID testi çağırarak id sinin kontrolünü yapınız.
+
+     @Test(dependsOnMethods = "CreateComment")
+     public void GetCommentByID(){
+
+          given()
+                  .spec(reqSpec)
+                  .when()
+                  .get(""+commentID)
+
+                  .then()
+                  .log().body()
+                  .body("id",equalTo(commentID))
+                  ;
+     }
+
+
 
 }
