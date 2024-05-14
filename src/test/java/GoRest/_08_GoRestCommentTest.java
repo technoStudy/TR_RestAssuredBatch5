@@ -86,6 +86,28 @@ public class _08_GoRestCommentTest {
                   ;
      }
 
+     // Soru : Create edilen comment ın name ini güncelleyiniz.
+
+     @Test(dependsOnMethods = "GetCommentByID")
+     public void UpdateComment()
+     {
+          String updName="İsmet_"+randomUreteci.name().fullName();
+          Map<String,String> updComment=new HashMap<>();
+          updComment.put("name",updName);
+
+          given()
+                  .spec(reqSpec)
+                  .body(updComment)
+                  .when()
+                  .put(""+commentID)
+
+                  .then()
+                  .log().body()
+                  .body("name", equalTo(updName))
+          ;
+     }
+
+
 
 
 }
