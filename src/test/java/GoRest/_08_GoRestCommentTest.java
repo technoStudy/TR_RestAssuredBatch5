@@ -53,16 +53,21 @@ public class _08_GoRestCommentTest {
           newComment.put("body",body);
           newComment.put("post_id",postId);
 
+          commentID=
           given()
+                  .spec(reqSpec)
+                  .body(newComment)
 
                   .when()
-
+                  .post("")
 
                   .then()
-
+                  .log().body()
+                  .statusCode(201)
+                  .extract().path("id")
           ;
 
-
+          System.out.println("commentID = " + commentID);
      }
 
 
